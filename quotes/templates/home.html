@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if ticker %}
+{{ ticker }}
+{% endif %}
+{% if api %}
+    {% if api == "Error..." %}
+            There was a problem with your ticker symbol, please try again...
+    {% else %}
+
+<h1>{{ api.companyName }}  | {{ api.symbol }} </h1>
+            {{ api.latestPrice }} <br>
+{{ api.previousClose }} <br>
+{{ api.marketCap }} <br>
+{{ api.ytdChange }} <br>
+{{ api.week52High }} <br>
+{{ api.week52Low }} <br>
+
+<!--        {% for key, value in api.items %}-->
+<!--            {{ key }} : {{ value }}<br>-->
+<!--        {% endfor %}-->
+    {% endif %}
+{% endif %}
+
+{% endblock %}
